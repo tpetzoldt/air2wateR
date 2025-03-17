@@ -27,6 +27,7 @@ run_air2water(sim_folder = sim_folder, mode = "pso")
 
 ## View calibration results
 ```{r gh-installation, eval = FALSE}
+library(ggplot2)
 
 plot_param(sim_folder = sim_folder) +
   ylab('RMSE (\u00B0C)') +
@@ -41,7 +42,6 @@ plot_param(sim_folder = sim_folder) +
 run_air2water(sim_folder = sim_folder, mode = "forward", use_pars = TRUE)
 out <- get_outputs(sim_folder = sim_folder)
 
-library(ggplot2)
 ggplot(out) +
   geom_line(aes(datetime, LSWT_sim, colour = 'Sim')) +
   geom_point(aes(datetime, LSWT_obs, colour = 'Obs')) +
